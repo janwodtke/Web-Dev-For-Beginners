@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>Typing game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Typing game!</h1>
+  <p>Practice your typing skills with a quote from Sherlock Holmes. Click **start** to begin!</p>
+  <p id='quote'></p> <!-- This will display our quote -->
+  <div>
+    <dialog id = "success-message">
+        <p id="message"></p> <!-- This will display any status messages -->
+        <form method="dialog">
+            <button>OK</button>
+        </form>
+    </dialog>
+    <input type="text" aria-label="current word" id="typed-value" disabled = true /> <!-- The textbox for typing -->
+    <button type="button" id="start">Start</button> <!-- To start the game -->
+  </div>
+  <p id='timer'> Test</p>
+  <script src="script.js"></script>
+</body>
+</html>
