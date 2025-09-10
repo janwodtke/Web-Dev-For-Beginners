@@ -62,3 +62,18 @@ h1#header {
   text-align: center;
   min-height: 2em;
 }
+
+dialog {
+      border: none;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      font-family: sans-serif;
+}
+button {
+      margin: 5px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+}

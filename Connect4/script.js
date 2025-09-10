@@ -1,6 +1,8 @@
 // Initializing variables
 // Boolean that specifies if it's the turn of player X
 let xTurn = true;
+// tp => twoplayer, c1 => Com Level 1
+let mode = 'tp'
 // Boxes:
 const boxes = document.getElementsByClassName('box');
 let field = [['','',''],['','',''],['','','']];
@@ -23,6 +25,16 @@ for(let box of boxes) {
                 field[row][col] = 'o';
             }
             xTurn = !xTurn;
+            if(mode == 'c1' && !gameOver()){
+                const moves = possibleMoves();
+                const move = moves[Math.floor(Math.random()*moves.length)]
+                const id = "box" + ((move[0]*3) + move[1] +1);
+                const elem = document.getElementById(id);
+                const img2 = elem.querySelector('img');
+                img2.src = './images/circle.png';
+                field[move[0]][move[1]] = 'o';
+                xTurn = !xTurn;
+            }
         }
         if(gameOver()){
             if(xTurn) document.getElementById('winner').innerHTML = "The winner is Player 2";
@@ -47,3 +59,31 @@ function gameOver(){
     ) return true;
     else return false;
 }
+
+function score(){
+    if(gameOver()){
+        // Player won
+        if(xTurn) return 1;
+        // Com won
+        else return -1;
+    }
+    // No winner
+    return 0;
+}
+
+function possibleMoves(){
+    let moves = [];
+    for(let i = 0; i < 3; i++){
+        for(let j = 0; j < 3; j++){
+            if(field[i][j] == '') moves.push([i,j]);
+        }
+    }
+    return moves;
+}
+
+const dialog = document.getElementById('myDialog');
+    dialog.addEventListener('close', () => {
+      if (dialog.returnValue == "Singleplayer Easy") {
+        mode = 'c1';
+      }
+    });

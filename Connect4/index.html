@@ -17,6 +17,19 @@
         <div id='box9'class = 'box'> <img/> </div>
     </div>
     <div id='winner'> </div>
+    <button onclick="document.getElementById('myDialog').showModal()">
+        Open Options
+    </button>
+
+    <dialog id="myDialog">
+        <form method="dialog">
+        <p><strong>Select an option:</strong></p>
+        <menu>
+            <button value="2-Player">2-Player</button>
+            <button value="Singleplayer Easy">Single-Player</button>
+        </menu>
+        </form>
+    </dialog>
     <script src="script.js"></script>
 </body>
 </html>
